@@ -7,7 +7,7 @@ namespace ListsAndGraphs
     {
         public Node first { get; }
         
-        /* This is the constructor */
+        /* This is the constructor equivalent to def __init__(self, data) */
         public LinkedList(int data)
         {
             first = new Node(data, null);
@@ -18,6 +18,7 @@ namespace ListsAndGraphs
             Node finalNode;
             
             finalNode = this.getLast();
+            /* Set the pointer of the last list item to the new node */
             finalNode.next = new Node(data, finalNode);
 
             return true;
@@ -25,37 +26,52 @@ namespace ListsAndGraphs
 
         private Node getLast()
         {
+            Node n;
             /* How do we return the final node? 
              * If you want to test in your program remember to make it public
              */
-        }
 
-        /* This is the destructor */
-        ~LinkedList()
-        {
-            /* Here you need to walk along the list to find the last listitem,
-             * and destroy it.
-             * 
-             * Although... nothing stops you from actually starting at the
-             * beginning and walking along, deleting them until .next is null!
-             * 
-             * If you're thinking laterally, perhaps something recursive might
-             * work.  Think 'cascading deletion', and you might get a clue.
-             * Hint: You could also make a destructor for Node.
+            /* 
+             * Walk along the list, until the pointer next is null
              */
+            n = this.first;
+
+            while (n.next != null)
+                n = n.next;
+            return n;
         }
 
         public Node findItem(int data)
         {
             /* Return null if you can't find the item */
+
+            /* make this! */
+
+            return null;
         }
+
+        public void printAll()
+        {
+            /* do something */
+
+            /* 
+            tmp = l.first;
+            Console.Out.WriteLine(tmp.data);
+            while ((tmp = tmp.next) != null)
+                Console.Out.WriteLine(tmp.data);
+            */
+
+        }
+
     }
 
     class Node
     {
-        public int data { get; set; }
+        public int data { /* want to be able to read it */
+            get; /* want to be able to write */ /*set;*/ }
         public Node next { get; set; }
         public Node previous { get; set; }
+
         public Node(int data, Node previous)
         {
             this.data = data;
@@ -75,6 +91,8 @@ namespace ListsAndGraphs
 
             l.append(5);
             l.append(10);
+
+            /* l.printAll() */
             
             tmp = l.first;
             Console.Out.WriteLine(tmp.data);
