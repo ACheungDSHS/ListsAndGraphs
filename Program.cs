@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Net.NetworkInformation;
 
 namespace ListsAndGraphs
 {
@@ -50,6 +51,18 @@ namespace ListsAndGraphs
             return null;
         }
 
+        public void deleteItem(int data)
+        {
+            Node n;
+
+            n = this.findItem(data);
+
+            n.previous.next = n.next;
+            n.next.previous = n.previous;
+
+            /* n is now orphaned */
+        }
+
         public void printAll()
         {
             /* do something */
@@ -92,12 +105,15 @@ namespace ListsAndGraphs
             l.append(5);
             l.append(10);
 
+
             /* l.printAll() */
             
             tmp = l.first;
             Console.Out.WriteLine(tmp.data);
             while ((tmp = tmp.next) != null)
                 Console.Out.WriteLine(tmp.data);
+
+            l = null;
         }
     }
 }
