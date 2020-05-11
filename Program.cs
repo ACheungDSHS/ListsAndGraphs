@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using System.Net.NetworkInformation;
 
@@ -47,7 +47,12 @@ namespace ListsAndGraphs
             /* Return null if you can't find the item */
 
             /* make this! */
+            Console.WriteLine("What node are you looking for?");
+            int item = Console.ReadLine();
 
+            While (n.next != item);
+                n = n.next;
+                Console.WriteLine("Item found");
             return null;
         }
 
