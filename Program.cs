@@ -1,3 +1,4 @@
+/* Still a bit stuck in terms of writing the code, but had some help from Harvey and Toby, who explained a bit of the code for me */ 
 using System;
 using System.ComponentModel;
 using System.Net.NetworkInformation;
